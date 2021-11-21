@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+    <h1> Link Shortener </h1>
+    <form method="post">
+    <div class="form-group">
+        <label for="url">Enter the Link</label>
+        <input type="text" name="url"
+               placeholder="Link to shorten" class="form-control"
+               value="{{ request.form['url'] }}" autofocus></input>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+
+    {% if short_url %}
+    <hr>
+    <p>Your Shortened link:</p>
+    <a class="h1" href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+    {% endif %}
+{% endblock %}
